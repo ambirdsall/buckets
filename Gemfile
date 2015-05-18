@@ -52,3 +52,4 @@ end
 gem 'haml'
 gem 'haml-rails'
 gem 'zurb-foundation'
+gem 'httparty'
