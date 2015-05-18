@@ -17,39 +17,38 @@ ActiveRecord::Schema.define(version: 20150515230843) do
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
-    t.integer  "season_id"
-    t.integer  "points"
-    t.integer  "field_goals_attempted"
-    t.integer  "field_goals_made"
-    t.integer  "threes_attempted"
-    t.integer  "threes_made"
-    t.integer  "offensive_rebounds"
-    t.integer  "defensive_rebounds"
-    t.integer  "free_throws_attempted"
-    t.integer  "free_throws_made"
-    t.integer  "assists"
-    t.integer  "steals"
-    t.integer  "blocks"
-    t.integer  "turnovers"
-    t.integer  "fouls"
+    t.integer  "player_id"
+    t.string   "nba_stats_id"
+    t.string   "game_date"
+    t.boolean  "playoffs"
+    t.boolean  "win"
+    t.integer  "pts"
+    t.integer  "fga"
+    t.integer  "fgm"
+    t.float    "fg_pct"
+    t.integer  "min"
+    t.integer  "fg3a"
+    t.integer  "fg3m"
+    t.float    "fg3_pct"
+    t.integer  "fta"
+    t.integer  "ftm"
+    t.float    "ft_pct"
+    t.integer  "oreb"
+    t.integer  "dreb"
+    t.integer  "reb"
+    t.integer  "ast"
+    t.integer  "stl"
+    t.integer  "blk"
+    t.integer  "tov"
+    t.integer  "pf"
     t.integer  "plus_minus"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-  end
-
-  create_table "players", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "height"
-    t.boolean  "retired"
-    t.boolean  "hall_of_fame"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
-  create_table "seasons", force: :cascade do |t|
-    t.integer  "year"
-    t.integer  "games_played"
-    t.integer  "games_total"
+  create_table "players", force: :cascade do |t|
+    t.string   "name"
+    t.string   "nba_stats_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

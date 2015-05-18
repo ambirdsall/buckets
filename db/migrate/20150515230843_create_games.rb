@@ -1,27 +1,33 @@
 class CreateGames < ActiveRecord::Migration
   def change
     create_table :games do |t|
-      t.references :season
-      t.integer    :points
-      t.integer    :field_goals_attempted
-      t.integer    :field_goals_made
-      t.integer    :threes_attempted
-      t.integer    :threes_made
-      t.integer    :offensive_rebounds
-      t.integer    :defensive_rebounds
-      t.integer    :free_throws_attempted
-      t.integer    :free_throws_made
-      t.integer    :assists
-      t.integer    :steals
-      t.integer    :blocks
-      t.integer    :turnovers
-      t.integer    :fouls
+      t.references :player
+      t.string     :nba_stats_id
+      t.string     :game_date
+      t.boolean    :playoffs
+      t.boolean    :win
+      t.integer    :pts
+      t.integer    :fga
+      t.integer    :fgm
+      t.float      :fg_pct
+      t.integer    :min
+      t.integer    :fg3a
+      t.integer    :fg3m
+      t.float      :fg3_pct
+      t.integer    :fta
+      t.integer    :ftm
+      t.float      :ft_pct
+      t.integer    :oreb
+      t.integer    :dreb
+      t.integer    :reb
+      t.integer    :ast
+      t.integer    :stl
+      t.integer    :blk
+      t.integer    :tov
+      t.integer    :pf
       t.integer    :plus_minus
 
       t.timestamps null: false
     end
   end
 end
-
-
-#SEASON_ID","Player_ID","Game_ID","GAME_DATE","MATCHUP","WL","MIN","FGM","FGA","FG_PCT","FG3M","FG3A","FG3_PCT","FTM","FTA","FT_PCT","OREB","DREB","REB","AST","STL","BLK","TOV","PF","PTS","PLUS_MINUS"
