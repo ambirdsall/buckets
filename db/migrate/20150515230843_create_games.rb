@@ -1,11 +1,11 @@
 class CreateGames < ActiveRecord::Migration
   def change
     create_table :games do |t|
-      t.references :player
-      t.string     :nba_stats_id
+      t.belongs_to :player,       index: true, foreign_key: true
+      t.string     :nba_stats_id, index: true
       t.string     :game_date
-      t.boolean    :playoffs
-      t.boolean    :win
+      t.boolean    :playoffs,     index: true
+      t.boolean    :win,          index: true
       t.integer    :pts
       t.integer    :fga
       t.integer    :fgm
