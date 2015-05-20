@@ -46,6 +46,11 @@ ActiveRecord::Schema.define(version: 20150515230843) do
     t.datetime "updated_at",   null: false
   end
 
+  add_index "games", ["nba_stats_id"], name: "index_games_on_nba_stats_id", using: :btree
+  add_index "games", ["player_id"], name: "index_games_on_player_id", using: :btree
+  add_index "games", ["playoffs"], name: "index_games_on_playoffs", using: :btree
+  add_index "games", ["win"], name: "index_games_on_win", using: :btree
+
   create_table "players", force: :cascade do |t|
     t.string   "name"
     t.string   "nba_stats_id"
@@ -53,4 +58,7 @@ ActiveRecord::Schema.define(version: 20150515230843) do
     t.datetime "updated_at",   null: false
   end
 
+  add_index "players", ["nba_stats_id"], name: "index_players_on_nba_stats_id", using: :btree
+
+  add_foreign_key "games", "players"
 end
