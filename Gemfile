@@ -43,8 +43,12 @@ group :development, :test do
   gem 'spring'
 end
 
+group :test do
+  gem 'rspec-rails'
+  gem 'vcr'
+  gem 'webmock'
+end
 
-gem 'rspec-rails'
 group :development do
   gem 'pry-rails'
 end
@@ -52,3 +56,4 @@ end
 gem 'haml'
 gem 'haml-rails'
 gem 'zurb-foundation'
+gem 'httparty'
